@@ -15,6 +15,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import Smallcard from "../components/Smallcard";
 
 export async function getStaticProps() {
   const files = fs.readdirSync("posts");
@@ -59,7 +60,9 @@ export default function Home({ posts }) {
           <Bigcard />
         </SwiperSlide>
       </Swiper>
-
+      <div>
+        <Smallcard />
+      </div>
       {/* {posts.map(({ slug, frontmatter }) => (
         <div
           key={slug}
