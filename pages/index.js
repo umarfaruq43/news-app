@@ -3,7 +3,18 @@ import matter from "gray-matter";
 import Image from "next/image";
 import Link from "next/link";
 import Bigcard from "../components/Bigcard";
-import MiniLayout from "../Layout/MiniLayout";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Autoplay,
+} from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 export async function getStaticProps() {
   const files = fs.readdirSync("posts");
@@ -26,11 +37,28 @@ export async function getStaticProps() {
 }
 
 export default function Home({ posts }) {
+  SwiperCore.use([Autoplay]);
   return (
-    <div className="">
-      <MiniLayout>
-        <Bigcard />
-      </MiniLayout>
+    <div className="max-w-6xl px-3 mx-auto py-14">
+      <Swiper
+        modules={[Pagination, Scrollbar, A11y]}
+        spaceBetween={0}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log("slide change")}
+        autoplay={{ delay: 4000 }}
+      >
+        <SwiperSlide>
+          <Bigcard />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Bigcard />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Bigcard />
+        </SwiperSlide>
+      </Swiper>
 
       {/* {posts.map(({ slug, frontmatter }) => (
         <div

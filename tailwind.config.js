@@ -9,6 +9,11 @@ module.exports = {
         gold: "#f79918",
         white: "#FFFFFF",
         black: "#000000",
+        fadegray: "#797979",
+      },
+
+      minHeight: {
+        image: "300px",
       },
     },
   },
