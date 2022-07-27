@@ -27,7 +27,7 @@ const HCard = ({ item }) => {
 
           {/* Text of the card */}
           <div className="flex flex-col justify-between p-4 leading-normal">
-            <h5 className="text-lg font-bold tracking-tight text-gray-900 dark:text-white text-clip overflow-hidden  max-h-82 ...">
+            <h5 className="text-lg font-bold tracking-tight text-gray-900 text-clip overflow-hidden  max-h-82 ...">
               {item && item.frontmatter.title}
             </h5>
             <div className=" text-sm text-fadegray italic">
