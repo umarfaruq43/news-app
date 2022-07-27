@@ -16,6 +16,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import Smallcard from "../components/Smallcard";
+import HCard from "../components/HCard";
+import Subcribe from "../components/Subcribe";
+import Popular from "../components/Popular";
 
 export async function getStaticProps() {
   const files = fs.readdirSync("posts");
@@ -39,30 +42,69 @@ export async function getStaticProps() {
 
 export default function Home({ posts }) {
   SwiperCore.use([Autoplay]);
+  // console.log(posts);
   return (
     <div className="max-w-6xl px-3 mx-auto py-14">
-      <Swiper
-        modules={[Pagination, Scrollbar, A11y]}
-        spaceBetween={0}
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
-        autoplay={{ delay: 4000 }}
-      >
-        <SwiperSlide>
-          <Bigcard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Bigcard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Bigcard />
-        </SwiperSlide>
-      </Swiper>
       <div>
+        <Swiper
+          modules={[Pagination, Scrollbar, A11y]}
+          spaceBetween={0}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          // onSwiper={(swiper) => console.log(swiper)}
+          // onSlideChange={() => console.log("slide change")}
+          autoplay={{ delay: 4000 }}
+          style={{ width: "100%" }}
+        >
+          {posts.map((item, i) => {
+            return (
+              <SwiperSlide key={i}>
+                <Bigcard item={item} />
+              </SwiperSlide>
+            );
+          })}
+
+          {/* <SwiperSlide>
+            <Bigcard />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Bigcard />
+          </SwiperSlide> */}
+        </Swiper>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-9">
+        <Smallcard />
+        <Smallcard />
+        <Smallcard />
+        <Smallcard />
+        <Smallcard />
         <Smallcard />
       </div>
+
+      <div>
+        <h1 className="font-bold text-2xl text-center  mt-20 mb-8 md:text-4xl">
+          Most Popular News
+        </h1>
+        <Popular />
+      </div>
+
+      <div className="mt-20 grid grid-cols-1  md:gap-20 md:grid-cols-2">
+        <div>
+          <h1 className="font-bold text-2xl mb-8 md:text-4xl">Sports</h1>
+          <HCard />
+          <HCard />
+          <HCard />
+        </div>
+
+        <div>
+          <h1 className="font-bold text-2xl mb-8 md:text-4xl">Business</h1>
+          <HCard />
+
+          <HCard />
+          <HCard />
+        </div>
+      </div>
+
       {/* {posts.map(({ slug, frontmatter }) => (
         <div
           key={slug}
