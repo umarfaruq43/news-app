@@ -6,15 +6,15 @@ const HCard = ({ item }) => {
   // const { item.slug, item.frontmatter } = item;
   // console.log(item);
   return (
-    <div className="rounded-md shadow-sm mb-10 max-w-sm md:max-w-xl mx-auto ">
+    <div className="rounded-md shadow-sm mb-10 max-w-sm md:max-w-xl mx-auto w-full relative ">
       <Link href={`/post/${item && item.slug}`}>
         <a className="sm:flex  shadow-md rounded-md overflow-hidden w-full relative">
           <div
-            className="h-48 md:h-36 w-full md:w-64 md:max-w-64 relative rounded-md overflow-hidden ..."
+            className=" ..."
             // style={{ maxWidth: "200px" }}
           >
             <Link href={`/post/${item && item.slug}`}>
-              <a>
+              <a className="block  h-48 md:h-36 w-full md:w-64 md:min-w-64 md:max-w-64 relative rounded-md overflow-hidden">
                 <Image
                   src={`/${item && item.frontmatter.socialImage}`}
                   alt="News"
