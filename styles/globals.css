@@ -38,3 +38,10 @@ html {
 .swiper-pagination-bullet-active {
   background-color: #f79918 !important;
 }
+
+.scale:hover {
+  transform: scale(1.1);
+}
+.scale {
+  transition: all .51s;
+}

@@ -21,11 +21,11 @@ import Subcribe from "../components/Subcribe";
 import Popular from "../components/Popular";
 
 export async function getStaticProps() {
-  const files = fs.readdirSync("posts");
+  const files = fs.readdirSync("news");
 
   const posts = files.map((fileName) => {
     const slug = fileName.replace(".md", "");
-    const readFile = fs.readFileSync(`posts/${fileName}`, "utf-8");
+    const readFile = fs.readFileSync(`news/${fileName}`, "utf-8");
     const { data: frontmatter } = matter(readFile);
     return {
       slug,
@@ -80,14 +80,12 @@ export default function Home({ posts }) {
         <Smallcard />
         <Smallcard />
       </div>
-
       <div>
         <h1 className="font-bold text-2xl text-center  mt-20 mb-8 md:text-4xl">
           Most Popular News
         </h1>
         <Popular />
       </div>
-
       <div className="mt-20 grid grid-cols-1  md:gap-20 md:grid-cols-2">
         <div>
           <h1 className="font-bold text-2xl mb-8 md:text-4xl">Sports</h1>
@@ -104,7 +102,6 @@ export default function Home({ posts }) {
           })}
         </div>
       </div>
-
       {/* {posts.map(({ slug, frontmatter }) => (
         <div
           key={slug}
