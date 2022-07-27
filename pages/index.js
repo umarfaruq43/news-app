@@ -91,17 +91,17 @@ export default function Home({ posts }) {
       <div className="mt-20 grid grid-cols-1  md:gap-20 md:grid-cols-2">
         <div>
           <h1 className="font-bold text-2xl mb-8 md:text-4xl">Sports</h1>
-          <HCard />
-          <HCard />
-          <HCard />
+
+          {posts.map((item, i) => {
+            return <HCard key={i} item={item} />;
+          })}
         </div>
 
         <div>
           <h1 className="font-bold text-2xl mb-8 md:text-4xl">Business</h1>
-          <HCard />
-
-          <HCard />
-          <HCard />
+          {posts.map((item, i) => {
+            return <HCard key={i} item={item} />;
+          })}
         </div>
       </div>
 

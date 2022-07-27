@@ -34,7 +34,7 @@ const Footer = () => {
         </div>
         <div className="text-center mt-5">
           Copyright ©2022 All rights reserved || Design by
-          <a href="http://devdrive.netlify.app" className="underline">
+          <a href="#" className="underline">
             {" "}
             Umar faruq
           </a>
