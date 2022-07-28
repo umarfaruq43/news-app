@@ -16,7 +16,7 @@ const Navbar = () => {
     { name: "Sports", href: "sport" },
     { name: "Opinion", href: "opinion" },
     { name: "Education", href: "education" },
-    { name: "Entertainment", href: "entataiment" },
+    { name: "Entertainment", href: "entertaiment" },
     { name: "About", href: "about" },
   ];
 
@@ -29,7 +29,7 @@ const Navbar = () => {
   // ...fulfilling {`nation's`} information needs.
   return (
     <div className="shadow-md" style={{ zIndex: "100" }}>
-      <nav className="bg-white border-gray-200 px-2  py-2.5 rounded dark:bg-gray-900">
+      <nav className="bg-white border-gray-200 px-2  py-2.5 rounded ">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <Link href="/">
             <a className="flex items-center">

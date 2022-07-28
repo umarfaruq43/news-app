@@ -1,0 +1,7 @@
+This is a guide for the post page.
+
+All post are under the post folder, the are numbered according to their categories
+
+posts => 1 -  5 === News Page
+
+posts => 6 -  ... === Entertaiment Page

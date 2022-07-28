@@ -43,6 +43,15 @@ export async function getStaticProps() {
 export default function Home({ posts }) {
   SwiperCore.use([Autoplay]);
   console.log(posts);
+  const bigData = [];
+
+  //  Adding Latest news for each categories to the navbar
+  bigData.push(posts[1]);
+  bigData.push(posts[0]);
+  bigData.push(posts[5]);
+  bigData.push(posts[6]);
+  //  Adding Latest news for each categories to the navbar
+
   return (
     <div className="max-w-6xl px-3 mx-auto py-14">
       <div>
@@ -56,7 +65,7 @@ export default function Home({ posts }) {
           autoplay={{ delay: 4000 }}
           style={{ width: "100%" }}
         >
-          {posts.map((item, i) => {
+          {bigData.map((item, i) => {
             return (
               <SwiperSlide key={i}>
                 <Bigcard item={item} />
@@ -65,15 +74,22 @@ export default function Home({ posts }) {
           })}
         </Swiper>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-9">
-        {posts.map((item, i) => {
-          return (
-            <SwiperSlide key={i}>
-              <Smallcard item={item} />
-            </SwiperSlide>
-          );
-        })}
+
+      <div>
+        <h1 className="font-bold text-2xl text-center  mt-20 mb-8 md:text-4xl">
+          Trending
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-9">
+          {posts.slice(2, 8).map((item, i) => {
+            return (
+              <SwiperSlide key={i}>
+                <Smallcard item={item} />
+              </SwiperSlide>
+            );
+          })}
+        </div>
       </div>
+
       <div>
         <h1 className="font-bold text-2xl text-center  mt-20 mb-8 md:text-4xl">
           Most Popular News
