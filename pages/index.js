@@ -21,11 +21,11 @@ import Subcribe from "../components/Subcribe";
 import Popular from "../components/Popular";
 
 export async function getStaticProps() {
-  const files = fs.readdirSync("news");
+  const files = fs.readdirSync("posts");
 
   const posts = files.map((fileName) => {
     const slug = fileName.replace(".md", "");
-    const readFile = fs.readFileSync(`news/${fileName}`, "utf-8");
+    const readFile = fs.readFileSync(`posts/${fileName}`, "utf-8");
     const { data: frontmatter } = matter(readFile);
     return {
       slug,
@@ -42,7 +42,7 @@ export async function getStaticProps() {
 
 export default function Home({ posts }) {
   SwiperCore.use([Autoplay]);
-  // console.log(posts);
+  console.log(posts);
   return (
     <div className="max-w-6xl px-3 mx-auto py-14">
       <div>
@@ -63,28 +63,22 @@ export default function Home({ posts }) {
               </SwiperSlide>
             );
           })}
-
-          {/* <SwiperSlide>
-            <Bigcard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Bigcard />
-          </SwiperSlide> */}
         </Swiper>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-9">
-        <Smallcard />
-        <Smallcard />
-        <Smallcard />
-        <Smallcard />
-        <Smallcard />
-        <Smallcard />
+        {posts.map((item, i) => {
+          return (
+            <SwiperSlide key={i}>
+              <Smallcard item={item} />
+            </SwiperSlide>
+          );
+        })}
       </div>
       <div>
         <h1 className="font-bold text-2xl text-center  mt-20 mb-8 md:text-4xl">
           Most Popular News
         </h1>
-        <Popular />
+        <Popular posts={posts} />
       </div>
       <div className="mt-20 grid grid-cols-1  md:gap-20 md:grid-cols-2">
         <div>

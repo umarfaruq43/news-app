@@ -4,27 +4,17 @@ import React from "react";
 
 const Bigcard = ({ item }) => {
   const { slug, frontmatter } = item;
+
   // console.log(slug);
   return (
     <div className="grid md:grid-cols-2 gap-4 md:gap-12 max-w-md md:max-w-full mx-auto">
       <div className="">
-        {/* <Link href={`/post/${slug}`}>
-          <a>
-            <Image
-              width={650}
-              height={340}
-              alt={frontmatter.title}
-              src={`/${frontmatter.socialImage}`}
-            />
-            <h1 className="p-4">{frontmatter.title}</h1>
-          </a>
-        </Link> */}
         <div
-          className="overflow-hidden rounded-md relative mx-auto min-h-image h-300 md:h-400"
+          className="overflow-hidden rounded-md  mx-auto min-h-image h-300 md:h-400 relative"
           // style={{ maxWidth: "448px" }}
         >
           <Image
-            src={`/${frontmatter && frontmatter.socialImage}`}
+            src={`/${item && frontmatter.socialImage}`}
             alt="Post Image "
             //   width="10%"
             //   height="100%"
@@ -34,7 +24,7 @@ const Bigcard = ({ item }) => {
           />
         </div>
       </div>
-      <div className="">
+      <div className="md:pr-12">
         <div>
           <div className="mb-4">
             {/* <strong>Business, Travel</strong> — July 2, 2020 */}
@@ -43,20 +33,25 @@ const Bigcard = ({ item }) => {
               Latest
             </button>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold  mb-4 max-w-full md:max-w-md  tracking-wider ">
+          <h1 className=" hidden md:block text-2xl md:text-4xl font-bold   mb-4 max-w-full md:max-w-xl tracking-wider max-h-42 overflow-hidden ">
             <Link href={`/post/${slug}`}>
-              <a>{frontmatter && frontmatter.title}</a>
+              <a>{item && frontmatter.title.slice(0, 58)}...</a>
+            </Link>
+          </h1>
+
+          <h1 className="block md:hidden text-2xl md:text-4xl font-bold   mb-4 max-w-full md:max-w-xl tracking-wider md:max-h-42 overflow-hidden ">
+            <Link href={`/post/${slug}`}>
+              <a>{item && frontmatter.title.slice(0, 58)}...</a>
             </Link>
           </h1>
         </div>
-        <div className="text-ellipsis ... overflow-hidden h-24">
-          Far far away, behind the word mountains, far from the countries
-          Vokalia and Consonantia, there live the blind texts. Separated they
-          live in Bookmarksgrove right at the coast of the Semantics, a large
-          language ocean.
+        <div className="text-ellipsis capitalize overflow-hidden  h-24">
+          {item && frontmatter.newsDesc}
         </div>
-        <div className="mt-4 text-sm text-fadegray italic">
-          June 20th <span className="text-gold text-2xl ">.</span> 4min read
+        <div className="mt-2 text-sm text-fadegray italic">
+          {item && item.frontmatter.date}{" "}
+          <span className="text-gold text-2xl ">.</span>{" "}
+          {item && item.frontmatter.readTime} read
         </div>
       </div>
     </div>

@@ -13,7 +13,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import Smallcard from "./Smallcard";
 
-const Popular = () => {
+const Popular = ({ posts }) => {
   return (
     <Swiper
       modules={[Pagination, Scrollbar, A11y]}
@@ -22,7 +22,7 @@ const Popular = () => {
       pagination={{ clickable: true }}
       //   onSwiper={(swiper) => console.log(swiper)}
       //   onSlideChange={() => console.log("slide change")}
-      autoplay={{ delay: 4000 }}
+      autoplay={{ delay: 4000, disableOnInteraction: false }}
       breakpoints={{
         // when window width is >= 640px
         640: {
@@ -36,36 +36,13 @@ const Popular = () => {
         },
       }}
     >
-      <SwiperSlide>
-        <Smallcard />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Smallcard />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Smallcard />
-      </SwiperSlide>{" "}
-      <SwiperSlide>
-        <Smallcard />
-      </SwiperSlide>{" "}
-      <SwiperSlide>
-        <Smallcard />
-      </SwiperSlide>{" "}
-      <SwiperSlide>
-        <Smallcard />
-      </SwiperSlide>{" "}
-      <SwiperSlide>
-        <Smallcard />
-      </SwiperSlide>{" "}
-      <SwiperSlide>
-        <Smallcard />
-      </SwiperSlide>{" "}
-      <SwiperSlide>
-        <Smallcard />
-      </SwiperSlide>{" "}
-      <SwiperSlide>
-        <Smallcard />
-      </SwiperSlide>
+      {posts.map((item, i) => {
+        return (
+          <SwiperSlide key={i}>
+            <Smallcard item={item} />
+          </SwiperSlide>
+        );
+      })}
     </Swiper>
   );
 };

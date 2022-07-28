@@ -44,9 +44,9 @@ export async function getStaticProps({ params: { slug } }) {
 
 export default function PostPage({ frontmatter, content, posts }) {
   return (
-    <div className="prose mx-auto  max-w-6xl py-12 px-3">
-      <h1>{frontmatter.title}</h1>
-      <h1>{frontmatter.date}</h1>
+    <div className="prose mx-auto  max-w-5xl py-12 px-3">
+      {/* <h1>{frontmatter.title}</h1>
+      <h1>{frontmatter.date}</h1> */}
       <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
       <div>
         <div className="mt-20 ">

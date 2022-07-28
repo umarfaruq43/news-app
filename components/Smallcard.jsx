@@ -2,14 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const Smallcard = () => {
+const Smallcard = ({ item }) => {
   return (
-    <div className="max-w-sm bg-white rounded-lg mx-auto  lg:m-w-card overflow-hidden shadow-md ">
-      <div className="h-48 w-full relative">
-        <Link href="#">
-          <a>
+    <div className="max-w-sm w-full bg-white rounded-lg mx-auto  lg:m-w-card overflow-hidden shadow-md ">
+      <div className="">
+        <Link href={`/post/${item && item.slug}`}>
+          <a className=" block relative h-48 w-full">
             <Image
-              src="/images/post.webp"
+              src={`/${item && item.frontmatter.socialImage}`}
               alt="News"
               //   width="100%"
               //   height="100%"
@@ -20,10 +20,10 @@ const Smallcard = () => {
         </Link>
       </div>
       <div className="p-4">
-        <Link href="">
+        <Link href={`/post/${item && item.slug}`}>
           <a>
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Noteworthy technology acquisitions 2021
+            <h5 className="mb-2 text-lg md:text-xl font-bold overflow-hidden tracking-tight text-gray-900 text-ellipsis max-h-14 ...">
+              {item && item.frontmatter.title}
             </h5>
           </a>
         </Link>
@@ -32,7 +32,9 @@ const Smallcard = () => {
           far, in reverse chronological order.
         </div> */}
         <div className="mt-2 text-sm text-fadegray italic">
-          June 20th <span className="text-gold text-2xl ">.</span> 4min read
+          {item && item.frontmatter.date}{" "}
+          <span className="text-gold text-2xl ">.</span>{" "}
+          {item && item.frontmatter.readTime} read
         </div>
       </div>
     </div>

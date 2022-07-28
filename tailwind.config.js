@@ -25,6 +25,7 @@ module.exports = {
       },
       maxHeight: {
         82: "84px",
+        42: "173px",
       },
       maxWidth: {
         card: "279px",

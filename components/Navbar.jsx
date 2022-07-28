@@ -6,12 +6,12 @@ import { GrClose } from "react-icons/gr";
 
 const Navbar = () => {
   const navItem = [
-    { name: "Home", href: "/" },
-    { name: "News", href: "/news" },
-    { name: "Bussiness", href: "/bussiness" },
-    { name: "Politics", href: "/Politics" },
-    { name: "Podcast", href: "/Podcast" },
-    { name: "Videos", href: "/video" },
+    { name: "Home", href: "" },
+    { name: "News", href: "news" },
+    { name: "Bussiness", href: "bussiness" },
+    { name: "Politics", href: "Politics" },
+    { name: "Podcast", href: "Podcast" },
+    { name: "Videos", href: "video" },
     { name: "Agriculture", href: "agric" },
     { name: "Sports", href: "sport" },
     { name: "Opinion", href: "opinion" },
@@ -28,7 +28,7 @@ const Navbar = () => {
   // AVANT-GARDE MEDIA
   // ...fulfilling {`nation's`} information needs.
   return (
-    <div className="" style={{ zIndex: "100" }}>
+    <div className="shadow-md" style={{ zIndex: "100" }}>
       <nav className="bg-white border-gray-200 px-2  py-2.5 rounded dark:bg-gray-900">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <Link href="/">
