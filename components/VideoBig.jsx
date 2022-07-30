@@ -13,15 +13,15 @@ const Bigcard = ({ item }) => {
           className="overflow-hidden rounded-md  mx-auto min-h-image h-300 md:h-400 relative"
           // style={{ maxWidth: "448px" }}
         >
-          <Image
-            src={`/${item && frontmatter.socialImage}`}
-            alt="Post Image "
-            //   width="10%"
-            //   height="100%"
-            layout="fill"
-            objectFit="cover"
-            //   className=""
-          />
+          {/* <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/yziKbLHIcP4"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe> */}
         </div>
       </div>
       <div className="md:pr-12">
@@ -34,19 +34,22 @@ const Bigcard = ({ item }) => {
             </button>
           </div>
           <h1 className=" hidden md:block capitalize text-2xl md:text-4xl font-bold   mb-4 max-w-full md:max-w-xl tracking-wider max-h-42 overflow-hidden ">
-            <Link href={`/post/${slug}`}>
+            {/* <Link href={`/post/${slug}`}>
               <a className="capitalize">
                 {item && frontmatter.title.slice(0, 58)}...
               </a>
-            </Link>
+            </Link> */}
+            Women involvement in politics in Nigeria
           </h1>
 
           <h1 className="block capitalize md:hidden text-2xl md:text-4xl font-bold   mb-4 max-w-full md:max-w-xl tracking-wider md:max-h-42 overflow-hidden ">
-            <Link href={`/post/${slug}`}>
+            {/* <Link href={`/post/${slug}`}>
               <a className="capitalize">
                 {item && frontmatter.title.slice(0, 58)}...
               </a>
-            </Link>
+            </Link> */}
+            {`This video brings you a talk show 'Focal Point' discussing women's
+            participation in Nigerian politics.`}
           </h1>
         </div>
         <div className="text-ellipsis  overflow-hidden  h-24">

@@ -3,6 +3,7 @@ import matter from "gray-matter";
 import Image from "next/image";
 import Link from "next/link";
 import Bigcard from "../components/Bigcard";
+import HCard from "../components/HCard";
 import Smallcard from "../components/Smallcard";
 
 export async function getStaticProps() {
@@ -27,9 +28,9 @@ export async function getStaticProps() {
 
 const Entertaiment = ({ posts }) => {
   let lnt = posts && posts.length;
-  console.log(lnt);
-  const main = posts.slice(6, lnt);
-  const bigHead = posts.slice(5, 6);
+
+  const main = posts.slice(14, 18);
+  const bigHead = posts.slice(14, 15);
   return (
     <div className="max-w-7xl mx-auto px-5">
       <div className=" mt-12">
@@ -41,6 +42,25 @@ const Entertaiment = ({ posts }) => {
         {main.map((item, i) => {
           return <Smallcard item={item} key={i} />;
         })}
+      </div>
+
+      {/* ***************  Others ******************** */}
+
+      <div className="mt-20 grid grid-cols-1  md:gap-20 md:grid-cols-2">
+        <div>
+          <h1 className="font-bold text-2xl mb-8 md:text-4xl">Education</h1>
+
+          {posts.slice(2, 5).map((item, i) => {
+            return <HCard key={i} item={item} />;
+          })}
+        </div>
+
+        <div>
+          <h1 className="font-bold text-2xl mb-8 md:text-4xl">Opinion</h1>
+          {posts.slice(18, 21).map((item, i) => {
+            return <HCard key={i} item={item} />;
+          })}
+        </div>
       </div>
     </div>
   );

@@ -40,15 +40,8 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ posts }) {
+export default function Video({ posts }) {
   SwiperCore.use([Autoplay]);
-  const bigData = [];
-  //  Adding Latest news for each categories to the navbar
-  bigData.push(posts[9]);
-  bigData.push(posts[1]);
-  bigData.push(posts[2]);
-  bigData.push(posts[0]);
-  //  Adding Latest news for each categories to the navbar
 
   return (
     <div className="max-w-6xl px-3 mx-auto py-14">
@@ -63,71 +56,67 @@ export default function Home({ posts }) {
           autoplay={{ delay: 4000 }}
           style={{ width: "100%" }}
         >
-          {bigData.map((item, i) => {
-            return (
-              <SwiperSlide key={i}>
-                <Bigcard item={item} />
-              </SwiperSlide>
-            );
-          })}
+          {/* {bigData.map((item, i) => {
+            return ( */}
+          <SwiperSlide>
+            {/* <Bigcard item={item} /> */}
+            <iframe
+              width="100%"
+              height="515"
+              src="https://www.youtube.com/embed/yziKbLHIcP4"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            {/* <Bigcard item={item} /> */}
+            <iframe
+              width="100%"
+              height="515"
+              src="https://www.youtube.com/embed/9VbeoDhGzC8"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            {/* <Bigcard item={item} /> */}
+            <iframe
+              width="100%"
+              height="515"
+              src="https://www.youtube.com/embed/a_uq9qUpjyc"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </SwiperSlide>
+          {/* );
+          })} */}
         </Swiper>
       </div>
 
-      <div>
-        <h1 className="font-bold text-2xl text-center  mt-20 mb-8 md:text-4xl">
-          Trending
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-9">
-          {posts.slice(6, 12).map((item, i) => {
-            return (
-              <SwiperSlide key={i}>
-                <Smallcard item={item} />
-              </SwiperSlide>
-            );
-          })}
-        </div>
-      </div>
-
-      <div>
-        <h1 className="font-bold text-2xl text-center  mt-20 mb-8 md:text-4xl">
-          Most Popular News
-        </h1>
-        <Popular posts={posts} />
-      </div>
       <div className="mt-20 grid grid-cols-1  md:gap-20 md:grid-cols-2">
         <div>
           <h1 className="font-bold text-2xl mb-8 md:text-4xl">Entertainment</h1>
 
-          {posts.slice(14, 18).map((item, i) => {
+          {posts.slice(6, 9).map((item, i) => {
             return <HCard key={i} item={item} />;
           })}
         </div>
 
         <div>
-          <h1 className="font-bold text-2xl mb-8 md:text-4xl">Education </h1>
-          {posts.slice(2, 6).map((item, i) => {
+          <h1 className="font-bold text-2xl mb-8 md:text-4xl">Business</h1>
+          {posts.map((item, i) => {
             return <HCard key={i} item={item} />;
           })}
         </div>
       </div>
-      {/* {posts.map(({ slug, frontmatter }) => (
-        <div
-          key={slug}
-          className="border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col"
-        >
-          <Link href={`/post/${slug}`}>
-            <a>
-              <Image
-                width={650}
-                height={340}
-                alt={frontmatter.title}
-                src={`/${frontmatter.socialImage}`}
-              />
-              <h1 className="p-4">{frontmatter.title}</h1>
-            </a>
-          </Link>
-        </div>
-      ))} */}
     </div>
   );
 }

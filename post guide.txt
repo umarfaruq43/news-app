@@ -4,4 +4,4 @@ All post are under the post folder, the are numbered according to their categori
 
 posts => 1 -  5 === News Page
 
-posts => 6 -  ... === Entertaiment Page
+posts => 6 - 9 ... === Entertaiment Page

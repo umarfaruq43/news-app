@@ -26,11 +26,11 @@ export async function getStaticProps() {
   };
 }
 
-const News = ({ posts }) => {
+const History = ({ posts }) => {
   let lnt = posts && posts.length;
-  console.log(lnt);
-  const main = posts.slice(1, lnt);
-  const bigHead = posts.slice(0, 1);
+
+  const main = posts.slice(6, 9);
+  const bigHead = posts.slice(5, 6);
   return (
     <div className="max-w-7xl mx-auto px-5">
       <div className=" mt-12">
@@ -43,11 +43,12 @@ const News = ({ posts }) => {
           return <Smallcard item={item} key={i} />;
         })}
       </div>
+
       {/* ***************  Others ******************** */}
 
       <div className="mt-20 grid grid-cols-1  md:gap-20 md:grid-cols-2">
         <div>
-          <h1 className="font-bold text-2xl mb-8 md:text-4xl">Related News</h1>
+          <h1 className="font-bold text-2xl mb-8 md:text-4xl">Entertainment</h1>
 
           {posts.slice(6, 9).map((item, i) => {
             return <HCard key={i} item={item} />;
@@ -55,8 +56,8 @@ const News = ({ posts }) => {
         </div>
 
         <div>
-          <h1 className="font-bold text-2xl mb-8 md:text-4xl">Related News</h1>
-          {posts.slice(10, 13).map((item, i) => {
+          <h1 className="font-bold text-2xl mb-8 md:text-4xl">Business</h1>
+          {posts.map((item, i) => {
             return <HCard key={i} item={item} />;
           })}
         </div>
@@ -65,4 +66,4 @@ const News = ({ posts }) => {
   );
 };
 
-export default News;
+export default History;
