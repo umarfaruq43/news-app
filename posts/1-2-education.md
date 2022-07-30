@@ -1,7 +1,7 @@
 ---
 title: "Effects  Of  Inclusion  On  Students  With  And  Without  Special  Educational  Ne Meeds  Reviewed."
 metaTitle: "Effects  Of  Inclusion  On  Students  With  And  Without  Special  Educational  Ne Meeds  Reviewed."
-newsDesc: "Tobi Amusan became the first Nigerian ever to win gold at the World Athletics Championships after racing to a lovely world record time of 12.06s."
+newsDesc: "The effects of inclusion on students with and without a special education needs reviewed In many countries, education policies are shifting towards inclusive education."
 socialImage: images/student.webp
 date: "July 28th"
 readTime: "6min"
